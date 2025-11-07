@@ -6,7 +6,7 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 import withCORS from "./withCORS.js";
 import parseURL from "./parseURL.js";
-import proxyM3U8 from "./proxyM3U8.js";
+import proxy from "./proxy.js";
 import { proxyTs } from "./proxyTS.js";
 import proxyRequest from "./proxyRequest.js";
 
