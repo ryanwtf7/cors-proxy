@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>M3U8 Proxy Player</title>
+    <title>Proxy Player</title>
     <meta name="description" content="Playground for testing m3u8 proxy." />
-    <meta property="og:title" content="M3U8 Proxy" />
+    <meta property="og:title" content="Cors Proxy" />
     <meta
       property="og:description"
-      content="Playground for testing m3u8 proxy."
+      content="Playground for testing cors proxy."
     />
 
     <!-- Tailwind CDN -->
@@ -23,15 +23,15 @@
       class="w-full max-w-screen-xl bg-gray-800 rounded-xl shadow-lg p-6 space-y-6"
     >
       <div>
-        <h1 class="text-3xl font-bold mb-2">M3U8 Proxy Player</h1>
-        <p class="text-sm text-gray-400">Paste your M3U8 URL and referer.</p>
+        <h1 class="text-3xl font-bold mb-2">Proxy Player</h1>
+        <p class="text-sm text-gray-400">Paste your URL's and referer.</p>
       </div>
 
       <div class="space-y-4">
         <!-- URL Input -->
         <div>
           <label for="url" class="block text-sm font-medium text-gray-300 mb-1"
-            >M3U8 URL</label
+            >URL's</label
           >
           <input
             type="text"
@@ -89,7 +89,7 @@
         const copy = document.getElementById("copy");
 
         const location = window.location.href;
-        const properUrl = `${location}m3u8-proxy?url=${encodeURIComponent(
+        const properUrl = `${location}proxy?url=${encodeURIComponent(
           url
         )}&headers=${encodeURIComponent(JSON.stringify(JSON.parse(headers)))}`;
 
@@ -113,7 +113,7 @@
         console.log("Using URL:", url);
         console.log("Using Headers:", headers);
 
-        const proxyURL = `/m3u8-proxy?url=${encodeURIComponent(
+        const proxyURL = `/proxy?url=${encodeURIComponent(
           url
         )}&headers=${encodeURIComponent(JSON.stringify(headers))}`;
         if (Hls.isSupported()) {
