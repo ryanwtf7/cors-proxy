@@ -35,6 +35,14 @@ export async function proxyTs(url, headers, req, res) {
         });
       });
 
+      proxy.on("error", (err) => {
+        console.error("HTTPS proxy error:", err);
+        if (!res.headersSent) {
+          res.writeHead(500);
+          res.end(err.message);
+        }
+      });
+
       req.pipe(proxy, {
         end: true,
       });
@@ -47,6 +55,15 @@ export async function proxyTs(url, headers, req, res) {
           end: true,
         });
       });
+
+      proxy.on("error", (err) => {
+        console.error("HTTP proxy error:", err);
+        if (!res.headersSent) {
+          res.writeHead(500);
+          res.end(err.message);
+        }
+      });
+
       req.pipe(proxy, {
         end: true,
       });
