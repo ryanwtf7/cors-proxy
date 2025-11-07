@@ -40,7 +40,7 @@ export default async function proxyM3U8(url, headers, res) {
         } else if (line.startsWith("#EXT-X-MEDIA:TYPE=AUDIO")) {
           const regex = /https?:\/\/[^\""\s]+/g;
           const url = `${web_server_url}${
-            "/m3u8-proxy?url=" +
+            "/proxy?url=" +
             encodeURIComponent(regex.exec(line)?.[0] ?? "") +
             "&headers=" +
             encodeURIComponent(JSON.stringify(headers))
@@ -54,7 +54,7 @@ export default async function proxyM3U8(url, headers, res) {
         newLines.push(
           `${
             web_server_url +
-            "/m3u8-proxy?url=" +
+            "/proxy?url=" +
             encodeURIComponent(uri.href) +
             "&headers=" +
             encodeURIComponent(JSON.stringify(headers))
